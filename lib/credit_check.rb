@@ -13,17 +13,41 @@ class CreditCheck
     @card.digits
   end
 
+  def double_every_other_element
+    integer_to_reversed_array.map.with_index do |number, index|
+    if index.odd?
+      number * 2
+    else
+      number
+    end
+   end
+  end
 
+  def sum_numbers_over_nine
+    double_every_other_element.map do |number|
+    if number > 9
+      number - 9
+    else
+      number
+    end
+   end
+  end
 
+  def sum_of_array
+    sum_numbers_over_nine.sum
+  end
 
-
-
-
-
+  def validate_card_number
+    if sum_of_array % 10 == 0
+    "The number is valid!"
+    else
+    "The number is invalid."
+    end
+  end
 
 end
-#
-#
+
+
 # new_card = "4929735477250543"
 # card_1 = CreditCheck.new(new_card)
 
@@ -49,20 +73,10 @@ end
 # p card_number
 
 ##PSEUDOCODE-------------------------------------------------------------------
-#DONE user enters card numbers
-#DONE card_number = gets.chomp will automatically return a string of the numbers entered
-#DONE card_number.reverse will reverse the order of the numbers so that i don't have to think right to left, personal peference, not necessary though
-#DONE card_number.split("") allows me to convert the string to an array by splitting the single string of numbers into 16 separate string elements
-#DONE card_number.map do |number| .to_i changes my string elements to integer elements in the array
-##DONE need to make sure the card number entered is the correct length, if not it needs to tell the card holder they have entered an invalid number
 
-
-## ONCE CARD NUMBER STORED
-## need to def method to multiply the numbers with an odd index by 2
-## need to .find_all numbers that are > 9, inject a plus sign in between the two digits to calculate the sum of the element, outcome will equal single digit
-## need to calculate the sum of the array (returning the sum as a new variable)
-## need to confirm that the sum of the array % 10 equals zero to check validity
-
-# OUTPUT
-## If it is valid, print "The number is valid!"
-## If it is invalid, print "The number is invalid!"
+#DONE card_number = gets.chomp.to_i will automatically convert the string input to integer form
+#DONE simplify dramatic split, reverse, map method chain from yesterday by using newly discovered method .digits
+## DONE need to def method to multiply the numbers with an odd index by 2, calling a method to a method
+## DONE need to map over array. if number is > 9 subtract 9 from the number to return the same number that adding the two digits would return.
+## DONE need to calculate the sum of the array (returning the sum as a new variable) call method on method object.
+## DONE need to confirm that the sum of the array % 10 equals zero to check validity, no need for puts
