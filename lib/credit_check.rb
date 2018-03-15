@@ -1,11 +1,52 @@
 print "Please enter your 16 digit credit card number:"
-card_number = gets.chomp.reverse!.split("").map { |number| number.to_i}
+# user_input= gets.chomp.to_i
 
-if card_number.length != 16
- puts "Invalid card number."
+class CreditCheck
+
+  attr_reader :card
+
+  def initialize(numbers)
+    @card = numbers
+  end
+
+  def integer_to_reversed_array
+    @card.digits
+  end
+
+
+
+
+
+
+
+
+
 end
+#
+#
+# new_card = "4929735477250543"
+# card_1 = CreditCheck.new(new_card)
 
-p card_number
+
+
+
+
+
+
+
+
+
+
+
+# print "Please enter your 16 digit credit card number:"
+# card_number = gets.chomp.to_i
+# card_number
+
+# if card_number.length != 16
+#  puts "Invalid card number."
+# end
+#
+# p card_number
 
 ##PSEUDOCODE-------------------------------------------------------------------
 #DONE user enters card numbers
