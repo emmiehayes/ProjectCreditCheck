@@ -1,20 +1,20 @@
 print "Please enter your 16 digit credit card number:"
-# user_input= gets.chomp.to_i
+#user_input= gets.chomp.to_i
 
 class CreditCheck
 
-  attr_reader :card
+ attr_reader :card
 
   def initialize(numbers)
     @card = numbers
   end
 
-  def int_to_reverse_array
+  def int_to_reverse_arr
     @card.digits
   end
 
-  def dbl_every_other_element(master)
-    master.map.with_index do |number, index|
+  def dbl_every_other(master_numbers)
+    master_numbers.map.with_index do |number, index|
     if index.odd?
       number * 2
     else
@@ -23,8 +23,8 @@ class CreditCheck
    end
   end
 
-  def calculate_numbers_over_nine(master)
-    master.map do |number|
+  def calculate_numbers_over_nine(master_numbers)
+    master_numbers.map do |number|
     if number > 9
       number - 9
     else
@@ -33,15 +33,15 @@ class CreditCheck
    end
   end
 
-  def sum_of_array(master)
-    master.sum
+  def sum_of_arr(master_numbers)
+    master_numbers.sum
   end
 
-  def validate_card_number(master)
-    if master % 10 == 0
-    "The number is valid!"
+  def validate_card(master_numbers)
+    if master_numbers % 10 == 0
+      "The number is valid!"
     else
-    "The number is invalid."
+      "The number is invalid."
     end
   end
 
