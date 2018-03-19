@@ -9,12 +9,12 @@ class CreditCheck
     @card = numbers
   end
 
-  def integer_to_reversed_array
+  def int_to_reverse_array
     @card.digits
   end
 
-  def double_every_other_element
-    integer_to_reversed_array.map.with_index do |number, index|
+  def dbl_every_other_element(master)
+    master.map.with_index do |number, index|
     if index.odd?
       number * 2
     else
@@ -23,8 +23,8 @@ class CreditCheck
    end
   end
 
-  def sum_numbers_over_nine
-    double_every_other_element.map do |number|
+  def calculate_numbers_over_nine(master)
+    master.map do |number|
     if number > 9
       number - 9
     else
@@ -33,12 +33,12 @@ class CreditCheck
    end
   end
 
-  def sum_of_array
-    sum_numbers_over_nine.sum
+  def sum_of_array(master)
+    master.sum
   end
 
-  def validate_card_number
-    if sum_of_array % 10 == 0
+  def validate_card_number(master)
+    if master % 10 == 0
     "The number is valid!"
     else
     "The number is invalid."
